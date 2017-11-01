@@ -1,0 +1,15 @@
+web:
+  image: 'gitlab/gitlab-ce:latest'
+  restart: always
+  hostname: 'www.clausin.ga'
+  environment:
+    GITLAB_OMNIBUS_CONFIG: |
+      external_url 'https://www.clausin.ga'
+  ports:
+    - '80:80'
+    - '443:443'
+   # - '22:22'
+  volumes:
+    - '/data/gitlab/config:/etc/gitlab'
+    - '/data/gitlab/logs:/var/log/gitlab'
+    - '/data/gitlab/data:/var/opt/gitlab'
